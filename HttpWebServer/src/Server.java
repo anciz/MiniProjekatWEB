@@ -15,8 +15,11 @@ public class Server {
 	public Server(int port) throws IOException {
 		this.port = port;
 		this.serverSocket = new ServerSocket(this.port);
-		
+		StanDAO stanoviDAO = new StanDAO();
 		this.stanovi=new ArrayList<Stan>();
+		for (Stan stan : stanoviDAO.findAll()) {
+			this.stanovi.add(stan);
+		}
 	}
 
 	public void run() {
