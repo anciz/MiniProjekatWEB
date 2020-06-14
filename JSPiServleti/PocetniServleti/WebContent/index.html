@@ -1,0 +1,67 @@
+<html>
+	
+		<header>
+			<title>Evidencija stanova</title>
+			
+		</header>
+
+   
+	<body align="center">
+		<h1 style="color: green" >
+  		 HTTP.Evidencija stanova
+   		</h1>
+   		
+		<form action="http://localhost/posalji" method="GET" >
+		 	<table align="center">
+		 		<tr>
+					<td><b>Broj stana (id):</b></td>
+					
+					<td><input type="text" name="brojStana"  required  pattern=[0-9][0-9][0-9]-[0-9][0-9]></td>
+		 		</tr>
+		 		<tr>
+					<td><b>Adresa:</b></td>
+					<td><input type="text" name="adresa" required></td>
+		 		</tr>
+		 		<tr>
+					<td><b>Grad:</b></td>
+					<td><input type="text" name="grad" required></td>
+		 		</tr>
+		 		<tr>
+					<td><b>Broj soba:</b></td>
+					<td><input type="text" name="brojSoba" required></td>
+		 		</tr>
+		 		<tr>
+					<td><b>Broj kvadrata:</b></td>
+						<td><input type="text" name="brojKvadrata" required></td>
+					<td>
+		 		</tr>
+		 		<tr>
+					<td><b>Centralno grejanje?</b></td>
+					<td><input type="checkbox" name="grejanje" value="DA" required></td>
+		 		</tr>
+		 		<tr>
+					<td><b>Cena:</b></td>
+					<td><input type="text" name="cena" required></td>
+		 		</tr>
+		 		<tr>
+					<td align="right"><b>HTTP:</b></td>
+					<td><input type="submit" name="posalji" value="Posalji"></td>
+		 		</tr>
+		 		<tr>
+					<td align="right"><b>Predji na JSP stranicu:</b></td>
+					<td><input type="submit" name="" value="jsp"></td>
+		 		</tr>
+		 		<tr>
+					<td align="right"><b>REST:</b></td>
+					<td><input type="submit" name="" value="REST"></td>
+		 		</tr>
+		 	</table>
+		</form>
+		
+		
+		
+	
+	</body>
+</html>
+
+
