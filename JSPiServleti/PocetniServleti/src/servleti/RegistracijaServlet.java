@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.UsersDAO;
+import bean.Stan;
+import dao.StanDAO;
 
 /**
  * Servlet implementation class RegistracijaServlet
@@ -32,7 +33,7 @@ public class RegistracijaServlet extends HttpServlet {
     public void init() throws ServletException {
     	super.init();
     	ServletContext context = getServletContext();
-    	context.setAttribute("users", new UsersDAO());
+    	context.setAttribute("stanovi", new StanDAO());
     }
     
 	/**
@@ -43,18 +44,25 @@ public class RegistracijaServlet extends HttpServlet {
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		PrintWriter out = response.getWriter();
 		
-		String broj = request.getParameter("broj");
-		String ime = request.getParameter("ime");
-		String prezime = request.getParameter("prezime");
-		String datumRodjenja=request.getParameter("datumRodjenja");
-		String zdravstveniStatus=request.getParameter("zdravstveniStatus");
+		ServletContext context = getServletContext();
+		StanDAO stanovi = (StanDAO) context.getAttribute("stanovi");
 		
 		
 		
-		// redirekcija na prikaz korisnika
-		RequestDispatcher disp = request.getRequestDispatcher("/users.jsp");
+		String brojStana = request.getParameter("brojStana");
+		String adresa = request.getParameter("adresa");
+		String grad = request.getParameter("grad");
+		String brojSoba = request.getParameter("brojSoba");
+		String brojKvadrata = request.getParameter("brojKvadrata");
+		String grejanje = request.getParameter("grejanje");
+		String cena = request.getParameter("cena");
+		
+		Stan stanZaDodavanje = new Stan(brojStana,adresa,grad,brojSoba,brojKvadrata,grejanje,cena,"dostupan");
+		stanovi.addStan(stanZaDodavanje);
+		
+		
+		RequestDispatcher disp = request.getRequestDispatcher("/pregledStanova.jsp");
 		disp.forward(request, response);
-		//out.append("broj je: "+ broj + " ime je: " + ime+" prezime je: "+ prezime+ " datum rodjenja je :"+datumRodjenja+" zdravstveni karton je :"+zdravstveniStatus);
 	}
 
 	/**

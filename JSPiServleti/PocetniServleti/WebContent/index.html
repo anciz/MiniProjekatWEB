@@ -7,16 +7,16 @@
 
    
 	<body align="center">
-		<h1 style="color: green" >
-  		 HTTP.Evidencija stanova
+		<h1 style="color: red" >
+  		 JSP.Evidencija stanova
    		</h1>
    		
-		<form action="http://localhost/posalji" method="GET" >
+		<form action="http://localhost:8081/PocetniServleti/RegistracijaServlet" method="GET" >
 		 	<table align="center">
 		 		<tr>
 					<td><b>Broj stana (id):</b></td>
 					
-					<td><input type="text" name="brojStana"  required  pattern=[0-9][0-9][0-9]-[0-9][0-9]></td>
+					<td><input type="text" name="brojStana"  required pattern=[0-9][0-9][0-9]-[0-9][0-9]></td>
 		 		</tr>
 		 		<tr>
 					<td><b>Adresa:</b></td>
@@ -63,5 +63,7 @@
 	
 	</body>
 </html>
+
+
 
 
